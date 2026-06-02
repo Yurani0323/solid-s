@@ -1,12 +1,15 @@
 package mal;
 
 /*
- * Ejemplo que viola el principio S.
+ * EJERCICIO
  *
- * Cliente almacena datos
- * y además imprime carnets.
+ * Observa el funcionamiento del programa.
  *
- * Tiene más de una responsabilidad.
+ * ¿Qué responsabilidades podrían
+ * separarse en clases diferentes?
+ *
+ * Justifica tu respuesta utilizando
+ * el Principio de Responsabilidad Única.
  */
 
 public class Main {
@@ -14,8 +17,13 @@ public class Main {
     public static void main(String[] args) {
 
         Cliente cliente =
-                new Cliente("Carlos Pérez");
+                new Cliente(
+                        "Carlos Pérez",
+                        "carlos@gmail.com",
+                        150);
 
         cliente.imprimirCarnet();
+        cliente.enviarCorreoBienvenida();
+        cliente.generarReportePuntos();
     }
 }

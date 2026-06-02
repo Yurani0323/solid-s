@@ -1,45 +1,62 @@
 package mal;
 
 /*
- * EJEMPLO INCORRECTO
+ * ACTIVIDAD
  *
- * Esta clase VIOLA el principio S.
+ * Esta clase NO cumple el Principio
+ * de Responsabilidad Única (SRP).
  *
- * Tiene DOS responsabilidades:
+ * Analiza el código e identifica
+ * las diferentes responsabilidades
+ * que tiene la clase Cliente.
  *
- * 1. Administrar los datos del cliente.
- * 2. Imprimir el carnet.
- *
- * Una clase debería tener una sola razón
- * para cambiar.
+ * Luego propón una solución
+ * aplicando la S de SOLID.
  */
 
 public class Cliente {
 
     private String nombre;
+    private String correo;
+    private int puntos;
 
-    public Cliente(String nombre) {
+    public Cliente(String nombre,
+                   String correo,
+                   int puntos) {
+
         this.nombre = nombre;
+        this.correo = correo;
+        this.puntos = puntos;
     }
 
     public String obtenerNombre() {
         return nombre;
     }
 
-    /*
-     * RESPONSABILIDAD INCORRECTA
-     *
-     * Imprimir carnets pertenece a otra clase.
-     *
-     * Si el diseño del carnet cambia,
-     * habrá que modificar Cliente.java.
-     *
-     * Esto rompe el principio S.
-     */
+    public String obtenerCorreo() {
+        return correo;
+    }
+
+    public int obtenerPuntos() {
+        return puntos;
+    }
+
     public void imprimirCarnet() {
 
         System.out.println("===== CARNET =====");
         System.out.println("Cliente: " + nombre);
         System.out.println("==================");
+    }
+
+    public void enviarCorreoBienvenida() {
+
+        System.out.println(
+                "Enviando correo a: " + correo);
+    }
+
+    public void generarReportePuntos() {
+
+        System.out.println(
+                "Puntos acumulados: " + puntos);
     }
 }

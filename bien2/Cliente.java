@@ -21,6 +21,7 @@ public class Cliente {
         return nombre;
     }
 
+    
     // No imprime carnets.
     // No genera reportes.
     // Solo administra los datos del cliente.
